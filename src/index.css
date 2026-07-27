@@ -3,7 +3,7 @@
 
 :root {
   --sz-blue:     #1A2B8C;
-  --sz-canvas:   #F5F1EB;
+  --sz-canvas:   #FAF8F5;
   --sz-ink:      #0E1A5C;
   --sz-gold:     #B8974A;
   --sz-ink-dim:  rgba(14,26,92,.58);
@@ -30,6 +30,18 @@ html, body, #root {
 }
 
 a { color: inherit; text-decoration: none; transition: color 0.25s; }
+
+/* Product card hover */
+.product-card:hover .product-img-primary { opacity: 0; }
+.product-card:hover .product-img-hover   { opacity: 1 !important; }
+.product-card:hover .product-img-primary,
+.product-card:hover .product-img-hover   { transform: scale(1.04); }
+
+/* Hero grid mobile */
+@media (max-width: 767px) {
+  .hero-grid { grid-template-columns: 1fr !important; }
+  .hero-grid > *:last-child { display: none; }
+}
 
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: var(--sz-canvas); }
