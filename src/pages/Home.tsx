@@ -2,10 +2,25 @@ import { useQuery } from '@tanstack/react-query'
 import { Link } from 'react-router-dom'
 import { getProducts, getCollections } from '../lib/shopify'
 import ProductCard from '../components/ProductCard'
+import type { ShopifyProduct, ShopifyCollection } from '../lib/shopify'
+
+const FALLBACK_PRODUCTS: ShopifyProduct[] = [
+  { id: '1', handle: 'lotus-earring', title: 'Lotus Earring', description: '', priceRange: { minVariantPrice: { amount: '0', currencyCode: 'AED' } }, images: { edges: [] }, variants: { edges: [{ node: { id: 'v1', availableForSale: false } }] } },
+  { id: '2', handle: 'green-lotus-earrings', title: 'Green Lotus Earrings', description: '', priceRange: { minVariantPrice: { amount: '0', currencyCode: 'AED' } }, images: { edges: [] }, variants: { edges: [{ node: { id: 'v2', availableForSale: false } }] } },
+  { id: '3', handle: 'cleopatra-earrings', title: 'Cleopatra Earrings', description: '', priceRange: { minVariantPrice: { amount: '0', currencyCode: 'AED' } }, images: { edges: [] }, variants: { edges: [{ node: { id: 'v3', availableForSale: false } }] } },
+  { id: '4', handle: 'blue-lotus-earring', title: 'Blue Lotus Earring', description: '', priceRange: { minVariantPrice: { amount: '0', currencyCode: 'AED' } }, images: { edges: [] }, variants: { edges: [{ node: { id: 'v4', availableForSale: false } }] } },
+]
+
+const FALLBACK_COLLECTIONS: ShopifyCollection[] = [
+  { id: 'c1', handle: 'earrings', title: 'Earrings', description: '', image: null },
+  { id: 'c2', handle: 'cuffs', title: 'Cuffs', description: '', image: null },
+]
 
 export default function Home() {
-  const { data: products } = useQuery({ queryKey: ['products'], queryFn: () => getProducts(8) })
-  const { data: collections } = useQuery({ queryKey: ['collections'], queryFn: getCollections })
+  const { data: productsData } = useQuery({ queryKey: ['products'], queryFn: () => getProducts(8) })
+  const { data: collectionsData } = useQuery({ queryKey: ['collections'], queryFn: getCollections })
+  const products = productsData ?? FALLBACK_PRODUCTS
+  const collections = collectionsData ?? FALLBACK_COLLECTIONS
 
   return (
     <div>
