@@ -1,5 +1,5 @@
 const SHOPIFY_DOMAIN = import.meta.env.VITE_SHOPIFY_DOMAIN || 'ae29e7.myshopify.com'
-const STOREFRONT_TOKEN = import.meta.env.VITE_STOREFRONT_TOKEN || ''
+const STOREFRONT_TOKEN = import.meta.env.VITE_STOREFRONT_TOKEN || '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'
 const API_URL = `https://${SHOPIFY_DOMAIN}/api/2024-01/graphql.json`
 
 async function shopifyFetch<T>(query: string, variables?: Record<string, unknown>): Promise<T> {
