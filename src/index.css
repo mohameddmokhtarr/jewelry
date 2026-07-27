@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Josefin+Sans:wght@100;200;300&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+:root {
+  --sz-blue:     #1A2B8C;
+  --sz-canvas:   #F5F1EB;
+  --sz-ink:      #0E1A5C;
+  --sz-gold:     #B8974A;
+  --sz-ink-dim:  rgba(14,26,92,.58);
+  --sz-ink-soft: rgba(14,26,92,.42);
+  --sz-ink-mid:  rgba(14,26,92,.28);
+  --sz-ink-line: rgba(14,26,92,.09);
+  --sz-serif:    'Cormorant Garamond', Georgia, serif;
+  --sz-sans:     'Josefin Sans', sans-serif;
+  --sz-display:  'Cinzel', serif;
+  --sz-arabic:   'Amiri', serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: var(--sz-canvas);
+  color: var(--sz-ink);
+  font-family: var(--sz-serif);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a { color: inherit; text-decoration: none; transition: color 0.25s; }
+
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--sz-canvas); }
+::-webkit-scrollbar-thumb { background: var(--sz-ink-mid); }
+::-webkit-scrollbar-thumb:hover { background: var(--sz-gold); }
